@@ -1,0 +1,14 @@
+[
+  {
+    "evaluation_id": "eval-101",
+    "question": "What is encapsulation in Java?",
+    "answer": "Encapsulation restricts direct access to fields using private modifiers and provides public getter/setter methods.",
+    "scores": {
+      "correctness": 9.0,
+      "technical_depth": 8.0,
+      "clarity": 9.0,
+      "completeness": 8.0,
+      "final_score": 8.5
+    }
+  }
+]
