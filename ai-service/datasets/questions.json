@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "question": "What is inheritance in Java?",
+    "skill": "Java",
+    "topic": "OOP",
+    "difficulty": "EASY"
+  },
+  {
+    "id": 2,
+    "question": "Explain the difference between HashMap and TreeMap in Java.",
+    "skill": "Java",
+    "topic": "Data Structures",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "id": 3,
+    "question": "How do indexes optimize query performance in MySQL?",
+    "skill": "MySQL",
+    "topic": "DBMS",
+    "difficulty": "MEDIUM"
+  },
+  {
+    "id": 4,
+    "question": "What is the time complexity of searching elements in a balanced binary search tree?",
+    "skill": "Data Structures",
+    "topic": "Algorithms",
+    "difficulty": "HARD"
+  }
+]

@@ -1,0 +1,39 @@
+# Maven
+target/
+*.pom
+*.jar
+*.war
+*.ear
+*.class
+.mvn/
+.metadata/
+
+# Node/Vite
+node_modules/
+dist/
+dist-ssr/
+*.local
+.eslintcache
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDEs/System
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+Thumbs.db
+.DS_Store
