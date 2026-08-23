@@ -25,6 +25,9 @@ const Interview = () => {
     setLoading(true);
     setEvaluation(null);
     try {
+      if (id === 'mock-123') {
+        throw new Error('Using mock session');
+      }
       // In a real application, the backend coordinates with Python AI to get the next question
       const q = await interviewApi.getNextQuestion(id, currentCount);
       setQuestion(q);
@@ -74,6 +77,9 @@ const Interview = () => {
     ]);
 
     try {
+      if (id === 'mock-123') {
+        throw new Error('Using mock session');
+      }
       // Post answer evaluation request
       const evalData = await interviewApi.submitAnswer({
         interviewId: id,
@@ -133,7 +139,9 @@ const Interview = () => {
   const handleCompleteInterview = async () => {
     setLoading(true);
     try {
-      await interviewApi.completeInterview(id);
+      if (id !== 'mock-123') {
+        await interviewApi.completeInterview(id);
+      }
       navigate(`/result/${id}`);
     } catch (err) {
       console.error(err);
