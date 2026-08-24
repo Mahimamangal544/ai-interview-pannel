@@ -3,10 +3,14 @@ from typing import Optional, List, Dict, Any
 
 class StartInterviewRequest(BaseModel):
     interview_id: int
+    role: str
+    skill: str
+    topic: str
     difficulty: str = "MEDIUM"
 
 class GenerateQuestionRequest(BaseModel):
     interview_id: int
+    role: str
     skill: str
     topic: str
     difficulty: str = "MEDIUM"
@@ -20,6 +24,10 @@ class QuestionResponse(BaseModel):
 class EvaluateAnswerRequest(BaseModel):
     interview_id: int
     question_id: int
+    role: str
+    skill: str
+    topic: str
+    difficulty: str
     question_text: str
     answer_text: str
 
