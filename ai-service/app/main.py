@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 # Load environmental configs
 load_dotenv()
 
-from app.routes import interview, question, evaluation
+from app.routes import interview, question, evaluation, final_report
 
 app = FastAPI(
     title="Coordinated AI Interview Panel API",
@@ -27,6 +27,7 @@ app.add_middleware(
 app.include_router(interview.router)
 app.include_router(question.router)
 app.include_router(evaluation.router)
+app.include_router(final_report.router)
 
 @app.get("/")
 def root():
