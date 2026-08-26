@@ -25,6 +25,7 @@ Previously Asked Questions:
 
 Generate ONE question now.
 """
+
 ANSWER_EVALUATION_PROMPT = """
 You are an expert technical interviewer evaluating a candidate's answer.
 
@@ -35,6 +36,9 @@ Difficulty: {difficulty}
 
 Interview Question:
 {question}
+
+Expected Concepts:
+{expected_concepts}
 
 Candidate Answer:
 {answer}
@@ -53,11 +57,14 @@ Score each category from 0 to 10:
    How clearly and logically is the answer explained?
 
 4. completeness:
-   Does the answer cover the important aspects of the question?
+   Does the answer cover the important aspects of the question and expected concepts?
+
+5. problem_solving:
+   How well does the candidate demonstrate problem-solving skills?
 
 Then calculate:
 
-final_score = average of correctness, technical_depth, clarity, completeness
+final_score = average of correctness, technical_depth, clarity, completeness, problem_solving
 
 IMPORTANT:
 - Return ONLY valid JSON.
@@ -73,6 +80,7 @@ Return exactly this structure:
   "technical_depth": 0,
   "clarity": 0,
   "completeness": 0,
+  "problem_solving": 0,
   "final_score": 0,
   "feedback": "Short and specific feedback for the candidate."
 }}

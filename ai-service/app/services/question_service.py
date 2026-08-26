@@ -15,13 +15,13 @@ class QuestionService:
     def __init__(self):
         api_key = os.getenv("GROQ_API_KEY")
 
-        if not api_key:
-            raise ValueError("GROQ_API_KEY is not configured")
-
-        self.client = OpenAI(
-            api_key=api_key,
-            base_url="https://api.groq.com/openai/v1"
-        )
+        if api_key:
+            self.client = OpenAI(
+                api_key=api_key,
+                base_url="https://api.groq.com/openai/v1"
+            )
+        else:
+            self.client = None
 
         # Local fallback questions
         self.question_pool = [
