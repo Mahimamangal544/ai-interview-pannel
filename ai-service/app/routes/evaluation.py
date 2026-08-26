@@ -16,6 +16,7 @@ router = APIRouter(
 )
 
 
+<<<<<<< HEAD
 evaluation_service = EvaluationService()
 
 
@@ -43,3 +44,35 @@ def evaluate_answer(
             status_code=500,
             detail=f"Evaluation failed: {str(e)}"
         )
+=======
+router = APIRouter(prefix="/ai", tags=["evaluation"])
+
+evaluation_service = EvaluationService()
+
+
+@router.post("/evaluate-answer", response_model=EvaluationResponse)
+def evaluate_answer(request: EvaluateAnswerRequest):
+
+    eval_result = evaluation_service.evaluate(
+        request.role,
+        request.skill,
+        request.topic,
+        request.difficulty,
+        request.question_text,
+        request.answer_text
+    )
+
+    session = sessions.get(request.interview_id)
+
+    if session:
+        session["scores"].append(eval_result["final_score"])
+
+    return EvaluationResponse(
+        correctness=eval_result["correctness"],
+        technical_depth=eval_result["technical_depth"],
+        clarity=eval_result["clarity"],
+        completeness=eval_result["completeness"],
+        final_score=eval_result["final_score"],
+        feedback=eval_result["feedback"]
+    )
+>>>>>>> origin/main
