@@ -1,10 +1,35 @@
-from typing import List, Dict, Any
+from typing import Dict
+
 
 class ScoringService:
-    def calculate_overall_score(self, scores: List[float]) -> float:
-        """
-        Computes overall average score from a list of question scores.
-        """
-        if not scores:
+
+    def calculate_score(
+        self,
+        correctness: float,
+        technical_depth: float,
+        completeness: float,
+        clarity: float,
+        problem_solving: float
+    ) -> float:
+
+        scores = [
+            correctness,
+            technical_depth,
+            completeness,
+            clarity,
+            problem_solving
+        ]
+
+        final_score = sum(scores) / len(scores)
+
+        return round(final_score, 2)
+
+    def validate_score(self, score: float) -> float:
+
+        if score < 0:
             return 0.0
-        return round(sum(scores) / len(scores), 2)
+
+        if score > 10:
+            return 10.0
+
+        return round(score, 2)
